@@ -4,8 +4,33 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --detectOpenHandles tests/integration",
+    "dev": "cross-env NODE_ENV=development nodemon server",
+    "start": "cross-env NODE_ENV=production nodemon server"
   },
   "author": "Will Constable",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.4"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
+  }
 }
