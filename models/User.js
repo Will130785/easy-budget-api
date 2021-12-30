@@ -5,7 +5,13 @@ const newUserSchema = new mongoose.Schema({
   lastName: String,
   username: String,
   email: String,
-  password: String
+  password: String,
+  account: {
+    totalAmount: Number,
+    allocation: [
+      { name: String, amount: Number }
+    ]
+  }
 })
 
 module.exports = new mongoose.model('User', newUserSchema)
