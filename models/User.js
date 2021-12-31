@@ -6,7 +6,6 @@ const newUserSchema = new mongoose.Schema({
   username: String,
   email: String,
   password: String,
-  passwordConfirm: String,
   account: {
     totalAmount: Number,
     allocation: [
