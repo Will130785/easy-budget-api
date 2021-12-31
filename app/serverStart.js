@@ -1,8 +1,10 @@
-const { PORT } = process.env
+const { PORT, NODE_ENV } = process.env
 
 module.exports = async (app) => {
-  // Start server
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
-  })
+  // If not test start server
+  if (NODE_ENV !== 'test') {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`)
+    })
+  }
 }

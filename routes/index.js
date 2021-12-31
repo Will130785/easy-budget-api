@@ -5,6 +5,6 @@ const ctrl = require('../controllers')
 router.get('/test', ctrl.testController.testController)
 
 // Routes
-router.post('/register', ctrl.userController.registerUser)
+router.post('/register', ctrl.authController.registerUser)
 
 module.exports = router
