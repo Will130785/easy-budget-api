@@ -57,6 +57,36 @@ describe('Budget api integrational tests', () => {
     })
     expect(res.statusCode).toEqual(400)
   })
+
+  // Login user
+  it('Attempts to log in the user', async () => {
+    const res = await request(app).post('/login')
+    .send({
+      username: 'will_constable',
+      password: 'test'
+    })
+    expect(res.statusCode).toEqual(200)
+  })
+
+  // Username not found
+  it('Attempts to log in with a non existant username', async () => {
+    const res = await request(app).post('/login')
+    .send({
+      username: 'test_test',
+      password: 'test'
+    })
+    expect(res.statusCode).toEqual(404)
+  })
+
+  // Wrong password
+  it('Attempts to log in with incorrect password', async () => {
+    const res = await request(app).post('/login')
+    .send({
+      username: 'will_constable',
+      password: 'wrong password'
+    })
+    expect(res.statusCode).toEqual(404)
+  })
 })
 
 afterAll(async () => {
